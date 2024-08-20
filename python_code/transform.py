@@ -93,6 +93,40 @@ class DataTransform:
         self.df.drop(columns=['Country'], inplace=True)
 
         return country_df
+    
+    def NomalizeTechnology(self) -> pd.DataFrame:
+        unique_technology = self.df['Technology'].unique()
+
+        technology_df = pd.DataFrame({
+            'id': range(1, len(unique_technology) + 1),
+            'TechnologiesName': unique_technology
+        })
+
+        technology_map = dict(zip(unique_technology, technology_df['id']))
+
+        self.df['TechonologyID'] = self.df['Technology'].map(technology_map)
+
+        self.df.drop(columns=['Technology'], inplace=True)
+
+        return technology_df
+    
+    def NomalizeSeniority(self) -> pd.DataFrame:
+
+        unique_Seniority = self.df['Seniority'].unique()
+
+        Seniority_df = pd.DataFrame({
+            'id': range(1, len(unique_Seniority) + 1),
+            'SenioritiesName': unique_Seniority
+        })
+
+        Seniority_map = dict(zip(unique_Seniority, Seniority_df['id']))
+
+        self.df['SeniorityID'] = self.df['Seniority'].map(Seniority_map)
+
+        self.df.drop(columns=['Seniority'], inplace=True)
+
+        return Seniority_df
+    
 
     def HiredOrNotHired(self) -> None:
         #I consider a candidate HIRED when he has both scores greater than or equal to 7
