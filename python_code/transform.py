@@ -62,17 +62,76 @@ class DataTransform:
             'Security Compliance': 'Security'
             }
         
-        self.df['CategoryOfTechnology'] = self.df['Technology'].map(self.technology_to_category)
+        self.df['Technology'] = self.df['Technology'].map(self.technology_to_category)
     
     
-    def full_name_replace(self) -> None:
+    def FullNameReplace(self) -> None:
         self.df['FullName'] = self.df['FirstName'] + ' ' + self.df['LastName']
         self.df.drop(columns=['FirstName','LastName'], inplace=True)
 
 
+    def ApplicationDateToDateType(self) -> None:
+        self.df['ApplicationDate'] = pd.to_datetime(self.df['ApplicationDate'])
 
-    def hired_or_not_hired(self) -> None:
+    def NormalizeCountry(self) -> pd.DataFrame:
+        """_summary_
+
+        Returns:
+            pd.DataFrame: country_df
+        """
+        unique_countries = self.df['Country'].unique()
+
+        country_df = pd.DataFrame({
+            'id': range(1, len(unique_countries) + 1),
+            'CountriesName': unique_countries
+        })
+
+        country_map = dict(zip(unique_countries, country_df['id']))
+
+        self.df['CountryID'] = self.df['Country'].map(country_map)
+
+        self.df.drop(columns=['Country'], inplace=True)
+
+        return country_df
+    
+    def NomalizeTechnology(self) -> pd.DataFrame:
+        unique_technology = self.df['Technology'].unique()
+
+        technology_df = pd.DataFrame({
+            'id': range(1, len(unique_technology) + 1),
+            'TechnologiesName': unique_technology
+        })
+
+        technology_map = dict(zip(unique_technology, technology_df['id']))
+
+        self.df['TechonologyID'] = self.df['Technology'].map(technology_map)
+
+        self.df.drop(columns=['Technology'], inplace=True)
+
+        return technology_df
+    
+    def NomalizeSeniority(self) -> pd.DataFrame:
+
+        unique_Seniority = self.df['Seniority'].unique()
+
+        Seniority_df = pd.DataFrame({
+            'id': range(1, len(unique_Seniority) + 1),
+            'SenioritiesName': unique_Seniority
+        })
+
+        Seniority_map = dict(zip(unique_Seniority, Seniority_df['id']))
+
+        self.df['SeniorityID'] = self.df['Seniority'].map(Seniority_map)
+
+        self.df.drop(columns=['Seniority'], inplace=True)
+
+        return Seniority_df
+    
+
+    def HiredOrNotHired(self) -> None:
         #I consider a candidate HIRED when he has both scores greater than or equal to 7
         self.df['Hired'] = np.where((self.df['Code Challenge Score'] >= 7) & (self.df['Technical Interview Score'] >= 7), 1, 0)
+
+    
     
         
