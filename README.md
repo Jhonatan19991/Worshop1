@@ -27,9 +27,12 @@
 ### Repository
 
 data <- this folder contain the candidates.csv used in this project .
+
 python_code <- this folder contain the data base setup and the transform.py witch is used to normalize the data.
+
 notebooks <- this folder contain de nootebooks in this project, in this case the Data explolatory analysis 
 and the processed data.
+
 src <- in this folder we make the python codes where we used to connect to the database and to make de models about the tables.
 
 ### How to Use this Project
