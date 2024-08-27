@@ -1,5 +1,5 @@
 ![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMoFxet9K9uMBhYpQyE_My9--989HZ4vCMSA&s)
-### ETL - Workshop-01 - Data Engineer Interview
+### ETL - Workshop-01 - Data Engineer Interview by Jhonatan Steven Morales
 
 ### Tools used
 - Python
@@ -18,6 +18,8 @@
 *   **Technology**: The area or field the candidate is applying to
 *   **Code Challenge Score**: A score from 0 to 10 for the practical test
 *   **Technical Interview Score**: A score from 0 to 10 for the theoretical or technical interview
+
+This dataset contains 50k rows abaout candidates
   
 #### Applications Prerequiered :
 1. Install Python : [Python Downloads](https://www.python.org/downloads/)
@@ -74,14 +76,29 @@ src <- in this folder we make the python codes where we used to connect to the d
 9. Now Open PowerBI
     
    9.1 start a new dashboard
-   ![image]([https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMoFxet9K9uMBhYpQyE_My9--989HZ4vCMSA&s](https://raw.githubusercontent.com/Jhonatan19991/images/main/assets/power1.png?token=GHSAT0AAAAAACVUKXBX4AQQQ5KCRBOWP4EIZWNGBKQ))
+   
+![image](https://github.com/Jhonatan19991/images/blob/main/assets/power1.png)
+
+   
    9.2 now select this opion and go to the option more...
+
+   ![image](https://github.com/Jhonatan19991/images/blob/main/assets/powe2.png)
+
    
    9.3 now select you data base type, in my case is PostgresSQL
+
+   ![image](https://github.com/Jhonatan19991/images/blob/main/assets/power3.png)
+
    
    9.4 put the information of your database
+
+   ![image](https://github.com/Jhonatan19991/images/blob/main/assets/power4.png)
+
    
    9.5 and now select the tables you want import to PowerBI
+
+   ![image](https://github.com/Jhonatan19991/images/blob/main/assets/power5.png)
+
 
 Now the data is now synchronized with powerBI, and you can start make your own dashboards!
 
