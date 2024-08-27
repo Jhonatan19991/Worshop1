@@ -74,7 +74,7 @@ src <- in this folder we make the python codes where we used to connect to the d
 9. Now Open PowerBI
     
    9.1 start a new dashboard
-   
+   ![image]([https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMoFxet9K9uMBhYpQyE_My9--989HZ4vCMSA&s](https://raw.githubusercontent.com/Jhonatan19991/images/main/assets/power1.png?token=GHSAT0AAAAAACVUKXBX4AQQQ5KCRBOWP4EIZWNGBKQ))
    9.2 now select this opion and go to the option more...
    
    9.3 now select you data base type, in my case is PostgresSQL
