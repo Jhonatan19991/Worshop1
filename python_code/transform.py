@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 class DataTransform:
-    """_summary_
-    """
+    """A class to transform and normalize candidate data."""
     def __init__(self, file):
         """_summary_
 
@@ -13,8 +12,7 @@ class DataTransform:
     
 
     def rename(self) -> None:
-        """_summary_
-        """
+        """Renames DataFrame columns for easier handling."""
 
         self.columns ={            
             "First Name": "FirstName",
@@ -27,14 +25,12 @@ class DataTransform:
     
 
     def insert_id(self) -> None:
-        """_summary_
-        """
+        """Inserts an 'id' column with sequential numbers for each row."""
         self.df['id'] = range(1,len(self.df)+1)
     
 
     def technology_by_category(self) -> None:
-        """_summary_
-        """
+        """Maps technology to categories and updates the 'Technology' column."""
         self.technology_to_category = {
             'Game Development': 'Software Development',
             'DevOps': 'DevOps and System Administration',
@@ -66,18 +62,20 @@ class DataTransform:
     
     
     def FullNameReplace(self) -> None:
+        """Creates a 'FullName' column by combining 'FirstName' and 'LastName', then drops the original columns."""
         self.df['FullName'] = self.df['FirstName'] + ' ' + self.df['LastName']
         self.df.drop(columns=['FirstName','LastName'], inplace=True)
 
 
     def ApplicationDateToDateType(self) -> None:
+        """Converts 'ApplicationDate' column to datetime type."""
         self.df['ApplicationDate'] = pd.to_datetime(self.df['ApplicationDate'])
 
     def NormalizeCountry(self) -> pd.DataFrame:
-        """_summary_
+        """Normalizes the 'Country' column and creates a reference DataFrame.
 
         Returns:
-            pd.DataFrame: country_df
+            pd.DataFrame: DataFrame containing unique countries and their IDs.
         """
         unique_countries = self.df['Country'].unique()
 
@@ -95,6 +93,11 @@ class DataTransform:
         return country_df
     
     def NomalizeTechnology(self) -> pd.DataFrame:
+        """Normalizes the 'Technology' column and creates a reference DataFrame.
+
+        Returns:
+            pd.DataFrame: DataFrame containing unique technologies and their IDs.
+        """
         unique_technology = self.df['Technology'].unique()
 
         technology_df = pd.DataFrame({
@@ -111,7 +114,11 @@ class DataTransform:
         return technology_df
     
     def NomalizeSeniority(self) -> pd.DataFrame:
+        """Normalizes the 'Seniority' column and creates a reference DataFrame.
 
+        Returns:
+            pd.DataFrame: DataFrame containing unique seniorities and their IDs.
+        """
         unique_Seniority = self.df['Seniority'].unique()
 
         Seniority_df = pd.DataFrame({
