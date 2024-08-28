@@ -37,6 +37,10 @@ and the processed data.
 
 src <- in this folder we make the python codes where we used to connect to the database and to make de models about the tables.
 
+### Workflow
+
+![image](https://github.com/Jhonatan19991/images/blob/main/assets/workflow.png)
+
 ### How to Use this Project
 
 1. Clone the project
